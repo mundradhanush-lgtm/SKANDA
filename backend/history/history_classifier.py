@@ -16,11 +16,7 @@ def classification(user_input):
     And lastly, phrases like "continue" or "What did we decide?" generally need history conversation, so reply `history needed` fully in lowercase if the meaning of the message indicates that previous conversation history is required. Consider the meaning of the entire message, not just specific words or phrases.'''
 
     try:
-        history_answer=ai_request(prompt).lower()
-        i=1
-        while "history not needed" not in history_answer and "history needed" not in history_answer and i<3:    
-            history_answer=ai_request(prompt).lower()
-            i+=1
+        history_answer=ai_request(prompt, None).lower()
     except Exception:
         return None
 
@@ -30,3 +26,5 @@ def classification(user_input):
         return "history not needed"
     elif("history needed" in history_answer):
         return "history needed"
+    else:
+        return None
