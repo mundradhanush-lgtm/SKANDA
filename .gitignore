@@ -3,3 +3,5 @@ api_keys.py
 .venv/
 __pycache__/
 .DS_Store
+/backend/history/semantic_sessions/
+/backend/history/sessions/
